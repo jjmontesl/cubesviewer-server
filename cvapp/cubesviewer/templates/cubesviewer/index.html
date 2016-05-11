@@ -3,94 +3,42 @@
 
 {% block extrahead %}
 
-<!-- CubesViewer CSS resources -->
-<link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}css/jqgrid/ui.jqgrid.css" />
-<link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}js/qtip/jquery.qtip.css" />
-<link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}js/wiky/wiky.math.css" />
-<link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}js/nvd3/nv.d3.min.css" />
+<link rel="stylesheet" href="{{ STATIC_URL }}lib/angular-ui-grid/ui-grid.css" />
+<link rel="stylesheet" href="{{ STATIC_URL }}lib/nvd3/nv.d3.css" />
+<link rel="stylesheet" href="{{ STATIC_URL }}lib/cubesviewer/cubesviewer.css" />
 
-
-<link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}css/cubesviewer/cubesviewer.css" />
-
-<!-- CubesViewer JS dependencies -->
-
-<script type="text/javascript" src="{{ STATIC_URL }}js/jquery/jquery.sticky.js"></script> <!-- for CubesViewer GUI -->
-<script type="text/javascript" src="{{ STATIC_URL }}js/jquery/jquery.blockUI.js"></script>
-
-<script type="text/javascript" src="{{ STATIC_URL }}js/wiky/wiky.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/wiky/wiky.math.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/flotr2/flotr2.min.js"></script>
-
-<script type="text/javascript" src="{{ STATIC_URL }}js/d3js/d3.v3.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/nvd3/nv.d3.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/qtip/jquery.qtip.js"></script>
-
-<script type="text/javascript" src="{{ STATIC_URL }}js/jqgrid/i18n/grid.locale-en.js" ></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/jqgrid/migrate-jquery-browser.js" ></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/jqgrid/jquery.jqGrid.min.js" ></script>
-
-<script type="text/javascript" src="{{ STATIC_URL }}js/cubes/cubes.js"></script>
-
-<!-- Cubesviewer modules -->
-<script type="text/javascript" src="{{ STATIC_URL }}js/cubesviewer/cubesviewer.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/cubesviewer/cubesviewer.cache.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/cubesviewer/cubesviewer.views.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/cubesviewer/cubesviewer.views.cube.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/cubesviewer/cubesviewer.views.cube.explore.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/cubesviewer/cubesviewer.views.cube.datefilter.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/cubesviewer/cubesviewer.views.cube.rangefilter.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/cubesviewer/cubesviewer.views.cube.series.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/cubesviewer/cubesviewer.views.cube.chart.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/cubesviewer/cubesviewer.views.cube.facts.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/cubesviewer/cubesviewer.views.cube.dimensionfilter.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/cubesviewer/cubesviewer.views.cube.columns.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/cubesviewer/cubesviewer.views.cube.export.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/cubesviewer/cubesviewer.views.undo.js"></script>
-<!-- <script type="text/javascript" src="{{ STATIC_URL }}js/cubesviewer/cubesviewer.views.notes.js"></script> -->
-<script type="text/javascript" src="{{ STATIC_URL }}js/cubesviewer/cubesviewer.gui.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/cubesviewer/cubesviewer.gui.reststore.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/cubesviewer/cubesviewer.gui.serializing.js"></script>
-<!-- <script type="text/javascript" src="{{ STATIC_URL }}js/cubesviewer/cubesviewer.gui.localeswitcher.js"></script> -->
-
+<script src="{{ STATIC_URL }}lib/angular-ui-grid/ui-grid.js"></script>
+<script src="{{ STATIC_URL }}lib/d3/d3.js"></script>
+<script src="{{ STATIC_URL }}lib/nvd3/nv.d3.js"></script>
+<script src="{{ STATIC_URL }}lib/flotr2/flotr2.min.js"></script>
+<script src="{{ STATIC_URL }}lib/cubesviewer/cubesviewer.js"></script>
 
 <script type="text/javascript">
 
-	// Initialize CubesViewer when document is ready
-	$(document).ready(function() {
+//Initialize CubesViewer when document is ready
+$(document).ready(function() {
 
-		cubesviewer.init({
-            //cubesUrl: "{{ cubesviewer_cubes_url }}"
-            cubesUrl: "{{ cubesviewer_backend_url }}/cubes"
-        });
-		cubesviewer.gui.init({
-            user: "{{ user.id }}",
-            container: $('#cubesviewer').get(0),
-            backendUrl: "{{ cubesviewer_backend_url }}"
-        });
+    //var cubesUrl = prompt ("Enter your Cubes Server URL", "http://localhost:5000");
+    var cubesUrl = "http://localhost:5000";
 
-	    // Start Cubesviewer system
-        cubesviewer.refresh();
+    cubesviewer.studio.init({
+        cubesUrl: cubesUrl,
+        backendUrl: "{{ cubesviewer_backend_url }}",
+        container: $('#cubesviewer').get(0),
+        user: "{{ user.id }}"
+    });
 
-        $('.cv-gui-panel').sticky({topSpacing:0});
-
-	});
+});
 
 </script>
-
 
 {% endblock %}
 
 {% block content %}
 
-<div id="cubesviewer">
-
-    <div class="cv-gui-panel" >
+    <!-- Cubes Viewer container -->
+    <div id="cubesviewer">
     </div>
-
-    <div class="cv-gui-workspace">
-    </div>
-
-</div>
 
 {% endblock %}
 

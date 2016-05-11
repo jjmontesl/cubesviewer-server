@@ -1,7 +1,5 @@
+[ROADMAP]
 
-    * Rework comments / ACLs / ownership / revisions if not done yet.
-      (new module / website: annotate) (?)
-    * Translation site / tool / ask for help.
-    * Interface available in English and one more language (Spanish?).
-    * Implement i18n.
+  * Interface available in English and one more language (Spanish?).
+  * Implement i18n.
 

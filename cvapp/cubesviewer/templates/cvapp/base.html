@@ -1,51 +1,58 @@
-{% load url from future %}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="{{ LANGUAGE_CODE|default:"en-us" }}" xml:lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
 <head>
 
     <title>{% block title %}{% endblock %}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
     {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
 
-	<link rel="stylesheet" href="{{ STATIC_URL }}css/blueprint/screen.css" type="text/css" media="screen, projection">
-	<link rel="stylesheet" href="{{ STATIC_URL }}css/blueprint/print.css" type="text/css" media="print">
-	<!--[if lt IE 8]> <link rel="stylesheet" href="{{ STATIC_URL }}css/blueprint/ie.css" type="text/css" media="screen, projection"> <!¡[endif]-->
+    <link rel="icon" type="image/png" href="{{ STATIC_URL }}img/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{ STATIC_URL }}img/favicon/favicon-194x194.png" sizes="194x194">
+    <link rel="icon" type="image/png" href="{{ STATIC_URL }}img/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="{{ STATIC_URL }}img/favicon/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="{{ STATIC_URL }}img/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon/favicon.ico">
 
-	<link type="text/css" href="{{ STATIC_URL }}js/jqueryui/jquery-ui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}lib/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}lib/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}lib/bootstrap-submenu/css/bootstrap-submenu.css" />
 
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/cvapp.css" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}cvapp.css" />
 
 	{% block extrastyle %}{% endblock %}
 
-	<script type="text/javascript" src="{{ STATIC_URL }}js/dateformat/dateformat.js"></script>
-
-	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery/jquery.js"></script>
-	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery/jquery.cookie.js"></script>
-	<script type="text/javascript" src="{{ STATIC_URL }}js/jqueryui/jquery-ui.min.js"></script>
-
-    <script type="text/javascript" src="{{ STATIC_URL }}js/cvapp.js"></script>
+    <script src="{{ STATIC_URL }}lib/jquery/jquery.js"></script>
+    <script src="{{ STATIC_URL }}lib/bootstrap/bootstrap.js"></script>
+    <script src="{{ STATIC_URL }}lib/bootstrap-submenu/js/bootstrap-submenu.js"></script>
+    <script src="{{ STATIC_URL }}lib/angular/angular.js"></script>
+    <script src="{{ STATIC_URL }}lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
 	{% block extrahead %}{% endblock %}
 
 </head>
 
 <body id="{% block body_id %}{% endblock %}">
-	<div id="body">
 
-        <table>
-            <tr>
-                <td>
-                    <div>{% block content_title %}{% endblock %}</div>
-                </td>
-            </tr>
-            <tr>
-                <td style="width: 100%; vertical-align: top;">
-                    {% block content %}{% endblock %}
-                </td>
-            </tr>
-        </table>
-        <div>{% block content_footer %}{% endblock %}</div>
+	<div class="container-fluid">
 
-	</div>
+        <div class="row">
+            <div class="col-xs-12">
+                {% block content_title %}{% endblock %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                {% block content_footer %}{% endblock %}
+            </div>
+        </div>
+
+    </div>
+
 </body>
-
 </html>

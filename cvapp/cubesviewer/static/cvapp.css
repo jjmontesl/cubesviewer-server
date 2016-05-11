@@ -1,0 +1,37 @@
+/*
+ * Cubesviewer sites CSS
+ * This file must not be included needed if you are embedding cubesviewer in your site, as it
+ * contains global CSS selectors.
+ */
+
+html {
+    font-size: 13px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+img.cv-logo {
+	margin: 0px;
+	height: 40px;
+	width: 85px;
+}
+
+.header h1 {
+	margin-bottom: 5px;
+}
+
+#cubesviewer {
+    margin-top: 10px;
+}
+
+.cv-gui-panel {
+    /*
+    position: fixed;
+    border-bottom: 2px solid black;
+    background-color: #ffffff;
+    left: 0px;
+    right: 0px;
+    padding: 3px 5px 3px 5px;
+    margin-bottom: 10px;
+    */
+
+}

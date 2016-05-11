@@ -5,39 +5,37 @@
 
 {% block content_title %}
 
-<div id="header"  class="ui-widget ui-widget-content ui-corner-all">
-    <div style="float: left;">
-        <a href="/">
-        <img id="cv-logo" title="CubesViewer" src="{{ STATIC_URL }}img/cubesviewer-logo.png" />
-        </a>
-    </div>
+<div class="header">
 
     {% if user.is_authenticated %}
-    <div style="float: right; margin-top: 4px; margin-right: 4px; text-align: right;">
-        Logged in as <b>{{ user.username }}</b><br />
-        [<a href="/accounts/logout/">logout</a>]
-    </div>
+        <div class="pull-right" style="margin-top: 4px; margin-right: 4px; text-align: right;">
+            <i class="fa fa-fw fa-user text-primary"></i> <b>{{ user.username }}</b> [<a href="/accounts/logout/">logout</a>]
+        </div>
     {% endif %}
 
-    <h1 id="site-name">{% trans 'CubesViewer' %}</h1>
+    <div style="float: left;">
+        <img class="cv-logo" title="CubesViewer" src="{{ STATIC_URL }}img/cubesviewer-logo.png" />
+    </div>
 
-    <div style="clear: both;"></div>
+    <h2>CubesViewer Studio <small class="text-success">Server</small></h2>
+
 </div>
 
 {% endblock %}
 
+
 {% block content_footer %}
-<div id="footer" style="clear: both; padding-top: 20px;">
-	<div style="height: 1px; border-top: 1px solid #DDDDDD; padding-top: 4px;"></div> 
-	<div style="float: right; white-space: nowrap;">
-		<p style="vertical-align: middle;"> 
-		<a href="http://databrewery.org/" target="_blank"><img title="Powered by Databrewery Cubes" style="width: 30px; height: 30px;" src="{{ STATIC_URL }}img/cubes-logo.png" /></a>
-		<a href="https://github.com/jjmontesl/cubesviewer" target="_blank"><img title="Powered by CubesViewer" style="width: 65px; height: 30px;" src="{{ STATIC_URL }}img/cubesviewer-logo.png" /></a>
-		</p>
-	</div>
-	<div>
-		<p>CubesViewer</p>
-	</div>
-</div>
+    <div class="footer" style="clear: both; padding-top: 20px; margin-bottom: 20px;">
+        <div style="height: 1px; border-top: 1px solid #DDDDDD; padding-top: 4px;"></div>
+        <div style="float: right; white-space: nowrap;">
+            <p style="vertical-align: middle; margin: 2px;">
+            <a href="http://databrewery.org/" target="_blank"><img title="Powered by Databrewery Cubes" style="width: 70px; height: 30px;" src="{{ STATIC_URL }}img/cubes-logo.png" /></a>
+            <a href="https://github.com/jjmontesl/cubesviewer" target="_blank"><img title="Powered by CubesViewer" style="width: 55px; height: 30px;" src="{{ STATIC_URL }}img/cubesviewer-logo.png" /></a>
+            </p>
+        </div>
+        <div>
+            <p><a href="https://github.com/jjmontesl/cubesviewer" target="_blank">CubesViewer</a> <span class="cv-version"></span> - Cubes OLAP explorer</p>
+        </div>
+    </div>
 {% endblock %}
 

@@ -1,4 +1,4 @@
-# CubesViewer  
+# CubesViewer
 #
 # Copyright (c) 2012-2014 Jose Juan Montes, see AUTHORS for more details
 #
@@ -11,11 +11,11 @@
 #
 # The above copyright notice and this permission notice shall be included in all
 # copies or substantial portions of the Software.
-# 
+#
 # If your version of the Software supports interaction with it remotely through
 # a computer network, the above copyright notice and this permission notice
 # shall be accessible to all users.
-# 
+#
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 # FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -29,21 +29,21 @@ from django.contrib import admin
 
 
 from django.contrib import admin
-from cubesviewer.models import CubesView, Note
+from cubesviewer.models import CubesView
+
 
 # Admin interface customization
 class CubesViewAdmin(admin.ModelAdmin):
+
     model = CubesView
+
     extra = 1
+
     #list_display = ('dc', 'title', 'mac_address', 'var', 'state')
     # list_filter = ['var'] # seems that foreignkeys don't work for list filters
     #inlines = [ClientHostMappingInline, InfrastructureHostMappingInline]
 
-class NoteAdmin(admin.ModelAdmin):
-    model = Note
-    
 
 # Register models with the administration interface
 admin.site.register(CubesView)
-admin.site.register(Note)
 

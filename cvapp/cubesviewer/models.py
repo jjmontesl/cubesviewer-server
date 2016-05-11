@@ -30,10 +30,12 @@ from django.contrib.auth.models import User
 
 from django.conf import settings
 
+
 class CubesViewerModel(models.Model):
     """
     Base class for Cubes Viewer stored objects.
     """
+
     create_date = models.DateTimeField(auto_now_add = True)
     update_date = models.DateTimeField(auto_now = True)
     #create_user = models.ForeignKey(User)
@@ -45,8 +47,9 @@ class CubesViewerModel(models.Model):
 
 class CubesView(CubesViewerModel):
     """
-    Saved Cubes View
+    Saved CubesViewer view.
     """
+
     name = models.CharField("Name", max_length=200)
     data = models.TextField()
     owner = models.ForeignKey(User)
@@ -58,18 +61,4 @@ class CubesView(CubesViewerModel):
     class Meta:
         ordering = ['name']
 
-
-class Note(CubesViewerModel):
-    """
-    Saved Cubes View
-    """
-    key = models.CharField("Key", max_length=200)
-    data = models.TextField()
-    update_user = models.ForeignKey(User)
-
-    def __unicode__(self):
-        return str(self.key)
-
-    class Meta:
-        ordering = ['key']
 
