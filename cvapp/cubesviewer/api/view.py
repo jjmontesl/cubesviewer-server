@@ -51,21 +51,22 @@ class ViewSaveView(APIView):
     def post(self, request, *args, **kwargs):
 
         #tview = None
-        if (int(request.POST["id"]) > 0):
-            tview = CubesView.objects.get(pk = request.POST["id"])
+
+        if (int(request.data["id"]) > 0):
+            tview = CubesView.objects.get(pk = request.data["id"])
             if (tview.owner_id != request.user.id):
                 raise Exception("Cannot save View belonging to other users.")
         else:
             tview = CubesView()
 
         # Update or delete as necessary
-        if (str(request.POST["data"]) == ""):
+        if (request.data["data"] == u""):
             tview.delete()
         else:
-            tview.name = request.POST["name"]
-            tview.data = request.POST["data"]
+            tview.name = request.data["name"]
+            tview.data = request.data["data"]
             tview.owner = request.user
-            if (request.POST["shared"] == "true"):
+            if (request.data["shared"] == True):
                 tview.shared = True
             else:
                 tview.shared = False
