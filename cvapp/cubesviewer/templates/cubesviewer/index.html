@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="{{ STATIC_URL }}lib/angular-ui-grid/ui-grid.css" />
 <link rel="stylesheet" href="{{ STATIC_URL }}lib/nvd3/nv.d3.css" />
 <link rel="stylesheet" href="{{ STATIC_URL }}lib/cubesviewer/cubesviewer.css" />
+<link rel="stylesheet" href="{{ STATIC_URL }}lib/bootstrap-submenu/css/bootstrap-submenu.css" /> <!-- after cubesviewer.css! -->
 
 <script src="{{ STATIC_URL }}lib/angular-ui-grid/ui-grid.js"></script>
 <script src="{{ STATIC_URL }}lib/d3/d3.js"></script>
@@ -18,13 +19,10 @@
 //Initialize CubesViewer when document is ready
 $(document).ready(function() {
 
-    //var cubesUrl = prompt ("Enter your Cubes Server URL", "http://localhost:5000");
-    var cubesUrl = "http://localhost:5000";
-
-    cubesviewer.studio.init({
-        cubesUrl: cubesUrl,
-        backendUrl: "{{ cubesviewer_backend_url }}",
+    cubesviewerStudio.init({
         container: $('#cubesviewer').get(0),
+        cubesUrl: "{{ cubesviewer_cubes_url }}",
+        backendUrl: "{{ cubesviewer_backend_url }}",
         user: "{{ user.id }}"
     });
 

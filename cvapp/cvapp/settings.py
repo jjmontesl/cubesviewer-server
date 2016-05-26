@@ -7,7 +7,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
 ##
-# 1. Configuration of CubesViewer database
+# 1. Configuration of CubesViewer Server database
 ##
 
 # Note: Default database uses sqlite and places the database file in the same
@@ -17,8 +17,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': os.path.join(BASE_DIR, 'cubesviewer.sqlite'), # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.sqlite3',  # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': os.path.join(BASE_DIR, 'cubesviewer.sqlite'),  # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -28,13 +28,13 @@ DATABASES = {
 
 
 ##
-# 2. Configuration of CubesViewer
+# 2. Configuration of CubesViewer Server
 ##
 
 # Base Cubes Server URL.
 # Your Cubes Server needs to be running and listening on this URL, and it needs
 # to be accessible to clients of the application.
-CUBESVIEWER_CUBES_URL="http://localhost:5000"
+CUBESVIEWER_CUBES_URL = "http://localhost:5000"
 
 # CubesViewer Store backend URL. It should point to this application.
 # Note that this must match the URL that you use to access the application,
@@ -42,18 +42,18 @@ CUBESVIEWER_CUBES_URL="http://localhost:5000"
 # via http://localhost:8000, use the same here. Note that 127.0.0.1 and
 # 'localhost' are different strings for this purpose. (If you wish to accept
 # requests from different URLs, you may need to add CORS support).
-CUBESVIEWER_BACKEND_URL="http://localhost:8000/cubesviewer"
+CUBESVIEWER_BACKEND_URL = "http://localhost:8000/cubesviewer"
 
 # Optional user and password tuple to access the backend, or False
-# (only meaningful when CubesViewer Cubes proxy is used)
+# (only applies when CubesViewer Cubes proxy is used)
 #CUBESVIEWER_CUBES_PROXY_USER = ('user', 'password')
 CUBESVIEWER_CUBES_PROXY_USER = None
 
 # CubesViewer Proxy ACL
-# (only meaningful when CubesViewer Cubes proxy is used)
+# (only applies when CubesViewer Cubes proxy is used)
 # ie. CUBESVIEWER_PROXY_ACL = [ { "cube": "my_cube", "group": "my_group" } ]
-CUBESVIEWER_PROXY_ACL = [
-                         ]
+CUBESVIEWER_PROXY_ACL = [ ]
+
 
 ##
 # 3. Other Django application settings

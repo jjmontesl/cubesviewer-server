@@ -8,7 +8,7 @@ How to create a virtualenv for CubesViewer Server:
 
    source env/bin/activate
 
-3) Update or upgrade dependencies:
+3) Install or upgrade dependencies:
 
    pip install -r requirements.txt
 

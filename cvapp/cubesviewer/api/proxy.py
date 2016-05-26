@@ -31,6 +31,7 @@ from django.conf import settings
 from django.contrib.auth.models import User, Group
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseForbidden
 
+
 # Get an instance of a logger
 def connection(request):
 
@@ -65,7 +66,7 @@ def connection(request):
 
     else:
 
-        return HttpResponseForbidden("CubesViewer proxy unknown path.")
+        return HttpResponseForbidden("CubesViewer Server proxy unknown path.")
 
     # Do request
     proxy_url = settings.CUBESVIEWER_CUBES_URL + "/" + path + "?" + params

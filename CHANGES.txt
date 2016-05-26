@@ -1,7 +1,8 @@
 [2.0.1]
 
+    * Updated to CubesViewer 2.0.
     * Upgraded to Django 1.9.6
     * Separated cubesviewer-server project from cubesviewer client.
 
-    * [See cubesviewer changelog for changes earlier than 2.0.1)]
+    * [See CubesViewer changelog for changes before 2.0.1)]
 
