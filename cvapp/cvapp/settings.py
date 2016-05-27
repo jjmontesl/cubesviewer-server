@@ -59,6 +59,13 @@ CUBESVIEWER_PROXY_ACL = [ ]
 # 3. Other Django application settings
 ##
 
+
+# Uncomment this if you need to allow access to CubesViewer resources
+# from a different origin (schema, domain or port) from which CubesViewer
+# is served to users.
+#CORS_ORIGIN_ALLOW_ALL = True
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -83,6 +90,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
 
+    'corsheaders',
+
     'cubesviewer',
 
     'rest_framework',
@@ -90,12 +99,14 @@ INSTALLED_APPS = (
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
 
 ROOT_URLCONF = 'testing.urls'
 

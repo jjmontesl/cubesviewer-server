@@ -3,4 +3,5 @@ argparse==1.2.1
 djangorestframework==3.3.3
 requests==2.5.1
 wsgiref==0.1.2
+django-cors-headers==1.1.0
 
