@@ -13,7 +13,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # Note: Default database uses sqlite and places the database file in the same
 # directory as this configuration file. Change the database connection to
 # match your needs.
-# https://docs.djangoproject.com/en/1.6/ref/settings/#databases
+# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
     'default': {
@@ -42,7 +42,7 @@ CUBESVIEWER_CUBES_URL = "http://localhost:5000"
 # via http://localhost:8000, use the same here. Note that 127.0.0.1 and
 # 'localhost' are different strings for this purpose. (If you wish to accept
 # requests from different URLs, you may need to add CORS support).
-CUBESVIEWER_BACKEND_URL = "http://localhost:8000/cubesviewer"
+CUBESVIEWER_BACKEND_URL = "http://loclahost:8000/cubesviewer"
 
 # Optional user and password tuple to access the backend, or False
 # (only applies when CubesViewer Cubes proxy is used)
@@ -67,7 +67,7 @@ CUBESVIEWER_PROXY_ACL = [ ]
 
 
 # Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
+# See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'q7@$_+^^na@k!adnet*4^=e@)06q_=gmoena1g=g-f*vc!vlfe'
 
@@ -123,7 +123,6 @@ TEMPLATE_LOADERS = (
 )
 
 # Internationalization
-# https://docs.djangoproject.com/en/1.6/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
@@ -133,7 +132,6 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.6/howto/static-files/
 STATIC_URL = '/static/'
 
 

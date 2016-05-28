@@ -47,14 +47,13 @@ Check documentation on main CubesViewer site:
 Support
 =======
 
-If you have questions, problems or suggestions, please get in touch.
-CubesViewer doesn't have a list on its own. Instead, please use
-the Cubes project mailing list:
+You can use the Cubes discuss group for CubesViewer related questions,
+and report bugs or features via CubesViewer Server issue tracker:
 
 * User group: http://groups.google.com/group/cubes-discuss
 * Report bugs: https://github.com/jjmontesl/cubesviewer-server/issues
 
-If you are using or trying CubesViewer, we'd love to hear from you (tweet #cubesviewer).
+If you are using or trying CubesViewer, we'd love to hear from you (please tweet #cubesviewer).
 
 Source
 ======
