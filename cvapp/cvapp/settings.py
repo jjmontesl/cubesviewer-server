@@ -42,7 +42,7 @@ CUBESVIEWER_CUBES_URL = "http://localhost:5000"
 # via http://localhost:8000, use the same here. Note that 127.0.0.1 and
 # 'localhost' are different strings for this purpose. (If you wish to accept
 # requests from different URLs, you may need to add CORS support).
-CUBESVIEWER_BACKEND_URL = "http://loclahost:8000/cubesviewer"
+CUBESVIEWER_BACKEND_URL = "http://localhost:8000/cubesviewer"
 
 # Optional user and password tuple to access the backend, or False
 # (only applies when CubesViewer Cubes proxy is used)
